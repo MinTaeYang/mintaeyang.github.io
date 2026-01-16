@@ -66,6 +66,11 @@
     .hr{height:1px; background: var(--line); margin: 14px 0;}
     footer{margin-top: 20px; color: rgba(155,176,198,.8); font-size: 12px;}
     .small{font-size: 12px; color: rgba(155,176,198,.85);}
+
+    /* ✅ Top nav (simple) */
+    .topnav{margin-top:10px;}
+    .topnav a{color: rgba(155,176,198,.92);}
+    .topnav a:hover{color: var(--accent); text-decoration: underline;}
   </style>
 </head>
 
@@ -80,6 +85,15 @@
         <span class="pill">출처 링크 제공</span>
         <span class="pill">무료 사용</span>
       </div>
+
+      <!-- ✅ (필수 1) 상단 네비게이션 추가 -->
+      <nav class="small topnav">
+        <a href="#app">앱</a> ·
+        <a href="#source">출처</a> ·
+        <a href="privacy.html">개인정보</a> ·
+        <a href="terms.html">이용약관</a> ·
+        <a href="#contact">문의</a>
+      </nav>
     </header>
 
     <div class="grid">
@@ -101,7 +115,8 @@
         </p>
       </section>
 
-      <aside class="card">
+      <!-- ✅ (id 추가) 실시간 분석 도구 카드 -->
+      <aside class="card" id="app">
         <h2>실시간 분석 도구</h2>
         <p class="muted">아래 앱에서 최신 헤드라인을 바로 검색할 수 있습니다.</p>
         <div class="btnRow">
@@ -131,7 +146,8 @@
       </aside>
     </div>
 
-    <section class="card" style="margin-top:16px;">
+    <!-- ✅ (id 추가) 데이터 출처 -->
+    <section class="card" id="source" style="margin-top:16px;">
       <h2>데이터 출처</h2>
       <p class="muted">
         헤드라인은 Google News RSS(공개 RSS 피드)를 통해 수집되며,
@@ -150,6 +166,9 @@
         <li>사용자가 입력한 검색 키워드는 기능 제공 및 편의 기능(예: 최근 검색)을 위해 브라우저/세션에 일시 저장될 수 있습니다.</li>
         <li>외부 링크(뉴스 원문)를 클릭하면 해당 사이트의 개인정보처리방침이 적용됩니다.</li>
       </ul>
+      <p class="small" style="margin-top:10px;">
+        자세한 내용: <a href="privacy.html">개인정보처리방침 전체 보기</a>
+      </p>
     </section>
 
     <section class="card" style="margin-top:16px;">
@@ -157,6 +176,9 @@
       <p class="muted">
         Open Insight는 정보 탐색을 돕는 도구이며 <b>투자 자문/권유가 아닙니다.</b>
         제공되는 정보의 정확성/완전성은 보장되지 않으며, 최종 판단과 책임은 사용자에게 있습니다.
+      </p>
+      <p class="small" style="margin-top:10px;">
+        관련 문서: <a href="terms.html">이용약관</a>
       </p>
     </section>
 
@@ -170,14 +192,15 @@
       </ul>
     </section>
 
-    <section class="card" style="margin-top:16px;">
+    <!-- ✅ (id 추가) 문의 -->
+    <section class="card" id="contact" style="margin-top:16px;">
       <h2>문의</h2>
       <p>Contact: <a href="mailto:openinsight.contact@gmail.com">openinsight.contact@gmail.com</a></p>
     </section>
 
     <footer>
       © 2026 Open Insight · GitHub Pages<br/>
-      (AdSense 소유권 확인/광고 스크립트 포함)
+      (광고 스크립트 포함)
     </footer>
   </div>
 </body>
