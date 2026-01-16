@@ -5,67 +5,180 @@
   <meta name="google-adsense-account" content="ca-pub-5334002072937874">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Open Insight - 실시간 뉴스 키워드 분석</title>
-  <meta name="description" content="Open Insight는 실시간 뉴스 헤드라인을 키워드로 검색하고, 핵심 토픽을 빠르게 파악할 수 있도록 돕는 정보 요약형 서비스입니다." />
+  <meta name="description" content="Open Insight는 실시간 뉴스 헤드라인을 키워드로 검색하고, 오늘의 핵심 토픽을 빠르게 파악할 수 있도록 돕는 정보 요약형 서비스입니다." />
+
+  <!-- ✅ AdSense 자동광고 코드 (AdSense 안내대로 head 안에 삽입) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5334002072937874"
+     crossorigin="anonymous"></script>
+
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; line-height: 1.6; }
-    h1 { margin: 0 0 6px; }
-    .sub { color: #555; margin: 0 0 18px; }
-    .box { border: 1px solid #e5e5e5; border-radius: 12px; padding: 16px; margin: 16px 0; }
-    a.btn { display: inline-block; padding: 10px 14px; border-radius: 10px; border: 1px solid #222; text-decoration: none; margin-right: 8px; }
-    a.btn:hover { background: #f2f2f2; }
-    ul { margin: 8px 0 0 18px; }
-    code { background: #f6f6f6; padding: 2px 6px; border-radius: 6px; }
-    footer { color:#666; font-size: 13px; margin-top: 28px; }
+    :root{
+      --bg:#0b0f17; --card:#121826; --text:#e8eef6; --muted:#9bb0c6;
+      --line:rgba(155,176,198,.18); --btn:#e8eef6; --btnText:#0b0f17;
+      --accent:#7dd3fc;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      margin: 0; background: var(--bg); color: var(--text); line-height: 1.65;
+    }
+    .wrap{max-width: 980px; margin: 44px auto; padding: 0 18px;}
+    header{margin-bottom: 18px;}
+    h1{font-size: 36px; margin: 0 0 6px 0; letter-spacing: -0.02em;}
+    .sub{color: var(--muted); margin: 0 0 18px 0;}
+    .grid{display:grid; grid-template-columns: 1.1fr .9fr; gap: 16px;}
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr;} }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .card h2{margin: 0 0 10px 0; font-size: 18px;}
+    .card p{margin: 0 0 10px 0; color: var(--text);}
+    .muted{color: var(--muted);}
+    .pill{
+      display:inline-block; padding: 6px 10px; border-radius: 999px;
+      border: 1px solid var(--line); color: var(--muted); font-size: 12px;
+      margin-right: 6px; margin-bottom: 6px;
+    }
+    a{color: var(--accent); text-decoration: none;}
+    a:hover{text-decoration: underline;}
+    .btnRow{display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px;}
+    .btn{
+      display:inline-block; padding: 10px 14px; border-radius: 12px;
+      border: 1px solid rgba(232,238,246,.22);
+      background: transparent; color: var(--text);
+      text-decoration:none;
+    }
+    .btn.primary{
+      background: var(--btn); color: var(--btnText);
+      border-color: transparent;
+    }
+    .btn:hover{filter: brightness(1.05);}
+    ul{margin: 8px 0 0 18px; color: var(--text);}
+    li{margin: 4px 0;}
+    code{
+      background: rgba(232,238,246,.08);
+      padding: 2px 6px; border-radius: 8px;
+      border: 1px solid rgba(232,238,246,.12);
+    }
+    .hr{height:1px; background: var(--line); margin: 14px 0;}
+    footer{margin-top: 20px; color: rgba(155,176,198,.8); font-size: 12px;}
+    .small{font-size: 12px; color: rgba(155,176,198,.85);}
   </style>
 </head>
+
 <body>
-  <h1>Open Insight</h1>
-  <p class="sub">실시간 뉴스 헤드라인을 키워드로 검색하고, 오늘의 핵심 토픽을 빠르게 파악하는 정보 요약형 서비스</p>
+  <div class="wrap">
+    <header>
+      <h1>Open Insight</h1>
+      <p class="sub">실시간 뉴스 헤드라인을 키워드로 탐색하고, 오늘의 핵심 토픽을 빠르게 파악하는 정보 요약형 서비스</p>
+      <div>
+        <span class="pill">Google News RSS 기반</span>
+        <span class="pill">키워드 탐색</span>
+        <span class="pill">출처 링크 제공</span>
+        <span class="pill">무료 사용</span>
+      </div>
+    </header>
 
-  <div class="box">
-    <h2>서비스 소개</h2>
-    <p>
-      Open Insight는 Google News RSS 기반으로 최신 헤드라인을 모아 보여주고,
-      사용자가 입력한 키워드(예: <code>반도체</code>, <code>환율</code>, <code>미국 금리</code>)에 따라
-      시장 이슈를 빠르게 탐색할 수 있도록 돕습니다.
-    </p>
-    <ul>
-      <li>키워드 기반 헤드라인 탐색</li>
-      <li>빠른 재탐색을 위한 추천 키워드 제공</li>
-      <li>외부 원문 링크로 출처 확인 가능</li>
-    </ul>
+    <div class="grid">
+      <section class="card">
+        <h2>서비스 소개</h2>
+        <p>
+          Open Insight는 <b>키워드(예: 반도체, 환율, 미국 금리, ETF, 비트코인)</b>를 입력하면
+          관련 최신 헤드라인을 모아 보여주고, 빠르게 시장 이슈를 훑어볼 수 있도록 돕습니다.
+        </p>
+        <ul>
+          <li>키워드 기반 헤드라인 탐색</li>
+          <li>빠른 재탐색을 위한 추천 키워드 제공</li>
+          <li>외부 원문 링크로 출처 확인 가능</li>
+        </ul>
+        <div class="hr"></div>
+        <p class="small">
+          * 본 페이지는 <b>서비스 소개/정책 안내</b> 목적의 콘텐츠 페이지입니다.
+          실제 검색/탐색 기능은 아래 “실시간 앱”에서 제공합니다.
+        </p>
+      </section>
+
+      <aside class="card">
+        <h2>실시간 분석 도구</h2>
+        <p class="muted">아래 앱에서 최신 헤드라인을 바로 검색할 수 있습니다.</p>
+        <div class="btnRow">
+          <a class="btn primary" href="https://open-insight-terminal-lxwmbdmubxafsxwsn7wyyr.streamlit.app/" target="_blank" rel="noopener">
+            Open Insight 앱 열기
+          </a>
+          <a class="btn" href="https://news.google.com/" target="_blank" rel="noopener">Google News</a>
+        </div>
+
+        <div class="hr"></div>
+        <h2>추천 키워드</h2>
+        <p class="muted">아래 키워드를 앱 검색창에 복사해 사용해보세요.</p>
+        <div>
+          <span class="pill">미국 금리</span>
+          <span class="pill">환율</span>
+          <span class="pill">반도체</span>
+          <span class="pill">AI</span>
+          <span class="pill">ETF</span>
+          <span class="pill">비트코인</span>
+          <span class="pill">원유</span>
+          <span class="pill">국채</span>
+          <span class="pill">코스피</span>
+          <span class="pill">테슬라</span>
+          <span class="pill">엔비디아</span>
+          <span class="pill">금 가격</span>
+        </div>
+      </aside>
+    </div>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>데이터 출처</h2>
+      <p class="muted">
+        헤드라인은 Google News RSS(공개 RSS 피드)를 통해 수집되며,
+        실제 기사 내용/저작권은 각 언론사(원문 사이트)에 있습니다.
+      </p>
+      <ul>
+        <li>헤드라인/링크: Google News RSS</li>
+        <li>원문: 각 기사 제공 사이트</li>
+      </ul>
+    </section>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>개인정보처리방침(요약)</h2>
+      <ul>
+        <li>본 사이트는 회원가입/로그인을 요구하지 않으며 개인식별정보를 직접 수집하지 않습니다.</li>
+        <li>사용자가 입력한 검색 키워드는 기능 제공 및 편의 기능(예: 최근 검색)을 위해 브라우저/세션에 일시 저장될 수 있습니다.</li>
+        <li>외부 링크(뉴스 원문)를 클릭하면 해당 사이트의 개인정보처리방침이 적용됩니다.</li>
+      </ul>
+    </section>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>면책조항</h2>
+      <p class="muted">
+        Open Insight는 정보 탐색을 돕는 도구이며 <b>투자 자문/권유가 아닙니다.</b>
+        제공되는 정보의 정확성/완전성은 보장되지 않으며, 최종 판단과 책임은 사용자에게 있습니다.
+      </p>
+    </section>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>FAQ</h2>
+      <ul>
+        <li><b>Q. 왜 같은 기사가 여러 개 보일 때가 있나요?</b><br/>A. 유사 헤드라인/중복 링크가 섞일 수 있으며 앱에서 중복 제거 옵션을 활용할 수 있습니다.</li>
+        <li><b>Q. 특정 키워드는 결과가 0개로 나와요.</b><br/>A. 다른 표현(예: “미국 금리 인하”, “원달러 환율”)로 재검색해보세요.</li>
+        <li><b>Q. 기사 본문은 어디서 보나요?</b><br/>A. 각 헤드라인을 클릭하면 원문 사이트로 이동합니다.</li>
+        <li><b>Q. 문의는 어디로 하면 되나요?</b><br/>A. 아래 Contact 이메일로 연락 주세요.</li>
+      </ul>
+    </section>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>문의</h2>
+      <p>Contact: <a href="mailto:openinsight.contact@gmail.com">openinsight.contact@gmail.com</a></p>
+    </section>
+
+    <footer>
+      © 2026 Open Insight · GitHub Pages<br/>
+      (AdSense 소유권 확인/광고 스크립트 포함)
+    </footer>
   </div>
-
-  <div class="box">
-    <h2>실시간 분석 도구</h2>
-    <p>아래 도구에서 최신 헤드라인을 바로 검색할 수 있습니다.</p>
-    <p>
-      <a class="btn" href="https://open-insight-terminal-lxwmbdmubxafsxwsn7wyyr.streamlit.app/" target="_blank" rel="noopener">
-        Open Insight 앱 열기
-      </a>
-    </p>
-    <p style="color:#666; font-size:13px;">
-      * 본 페이지는 서비스 소개/정책 안내 목적의 콘텐츠 페이지이며, 실제 검색/탐색 기능은 위 앱에서 제공됩니다.
-    </p>
-  </div>
-
-  <div class="box">
-    <h2>개인정보처리방침(요약)</h2>
-    <ul>
-      <li>본 사이트는 회원가입/로그인을 요구하지 않으며 개인식별정보를 직접 수집하지 않습니다.</li>
-      <li>사용자가 입력한 검색 키워드는 기능 제공 및 편의 기능(최근 검색 등)을 위해 브라우저/세션에 일시 저장될 수 있습니다.</li>
-      <li>외부 링크(뉴스 원문)를 클릭하면 해당 사이트의 개인정보처리방침이 적용됩니다.</li>
-    </ul>
-  </div>
-
-  <div class="box">
-    <h2>문의</h2>
-    <p>Contact: <a href="mailto:openinsight.contact@gmail.com">openinsight.contact@gmail.com</a></p>
-  </div>
-
-  <footer>
-    © 2026 Open Insight · GitHub Pages<br/>
-    (AdSense 소유권 확인용 메타 태그 포함)
-  </footer>
 </body>
 </html>
